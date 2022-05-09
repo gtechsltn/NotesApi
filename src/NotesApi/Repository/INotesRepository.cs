@@ -10,5 +10,7 @@ namespace NotesApi.Repository
         Task DeleteNotesAsync(string notesId);
 
         Task<Notes> UpdateNotesAsync(Notes notes);
+
+        Task<Notes?> GetNotes(string notesId);
     }
 }
