@@ -38,5 +38,12 @@ namespace NotesApi.Repository
             }
             return notes;
         }
+
+        public async Task<Notes> UpdateNotesAsync(Notes notes)
+        {
+            DocumentReference documentReference = Db.Document($"notes/{notes.NotesId}");
+            await documentReference.SetAsync(notes,SetOptions.MergeAll);
+            return notes;
+        }
     }
 }

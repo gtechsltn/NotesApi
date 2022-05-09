@@ -8,5 +8,7 @@ namespace NotesApi.Repository
         Task<IEnumerable<Notes>> GetAllNotesAsync(string userId);
 
         Task DeleteNotesAsync(string notesId);
+
+        Task<Notes> UpdateNotesAsync(Notes notes);
     }
 }
