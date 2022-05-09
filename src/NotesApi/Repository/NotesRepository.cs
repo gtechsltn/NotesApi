@@ -21,6 +21,12 @@ namespace NotesApi.Repository
             return notes;
         }
 
+        public async Task DeleteNotesAsync(string notesId)
+        {
+            DocumentReference document = Db.Document($"notes/{notesId}");
+            await document.DeleteAsync();
+        }
+
         public async Task<IEnumerable<Notes>> GetAllNotesAsync(string userId)
         {
             List<Notes> notes = new List<Notes>();
