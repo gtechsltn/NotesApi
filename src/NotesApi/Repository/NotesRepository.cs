@@ -20,5 +20,17 @@ namespace NotesApi.Repository
             notes.CreatedDateTime = DateTime.UtcNow;
             return notes;
         }
+
+        public async Task<IEnumerable<Notes>> GetAllNotesAsync(string userId)
+        {
+            List<Notes> notes = new List<Notes>();
+            var query = collection.WhereEqualTo("UserId", userId);
+            QuerySnapshot documentSnapshots = await query.GetSnapshotAsync();
+            foreach (var item in documentSnapshots.Documents)
+            {
+                notes.Add(item.ConvertTo<Notes>());
+            }
+            return notes;
+        }
     }
 }
