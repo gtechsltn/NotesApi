@@ -4,7 +4,7 @@ namespace NotesApi.GetNotes
 {
     public class GetNotesResponse
     {
-        public Notes Notes { get; set; }
+        public Notes? Notes { get; set; } 
     }
 
 }

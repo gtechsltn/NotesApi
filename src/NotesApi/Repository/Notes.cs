@@ -6,16 +6,16 @@ namespace NotesApi.Repository
     public class Notes
     {
         [FirestoreDocumentId]
-        public string NotesId { get; set; }
+        public string NotesId { get; set; } = string.Empty;
 
         [FirestoreProperty]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
         [FirestoreProperty]
-        public string Content { get; set; }
+        public string Content { get; set; } = string.Empty;
 
         [FirestoreProperty]
-        public string AttachmentUrl { get; set; }
+        public string AttachmentUrl { get; set; } = string.Empty;
 
         [FirestoreDocumentCreateTimestamp]
         public DateTime CreatedDateTime { get; set; }
