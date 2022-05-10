@@ -6,7 +6,6 @@ using NotesApi.Repository;
 var builder = WebApplication.CreateBuilder(args);
 var port = Environment.GetEnvironmentVariable("PORT")??"8080";
 var url = $"http://0.0.0.0:{port}";
-
 builder.Services.AddFastEndpoints();
 builder.Services.AddSingleton<FirestoreDb>(FirestoreDb.Create("backup-photos-1234"));
 builder.Services.AddScoped<INotesRepository, NotesRepository>();

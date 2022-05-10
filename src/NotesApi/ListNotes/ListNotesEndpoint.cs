@@ -2,7 +2,7 @@
 
 namespace NotesApi.ListNotes
 {
-    public class ListNotesEndpoint : Endpoint<ListNotesRequest,ListResponse>
+    public class ListNotesEndpoint : Endpoint<ListNotesRequest, ListResponse>
     {
         private readonly INotesRepository notesRepository;
 

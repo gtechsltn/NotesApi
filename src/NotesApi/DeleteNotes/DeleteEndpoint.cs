@@ -11,7 +11,6 @@ namespace NotesApi.DeleteNotes
             this.notesRepository = notesRepository;
         }
 
-
         public override void Configure()
         {
             Verbs(Http.DELETE);

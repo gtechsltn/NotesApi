@@ -6,5 +6,4 @@ namespace NotesApi.GetNotes
     {
         public Notes? Notes { get; set; } 
     }
-
 }

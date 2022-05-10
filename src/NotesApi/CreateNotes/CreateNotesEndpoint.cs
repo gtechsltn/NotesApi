@@ -2,7 +2,7 @@
 
 namespace NotesApi.CreateNotes
 {
-    public class CreateNotesEndpoint : EndpointWithMapping<CreateNotes, CreateNotestResponse,Notes>
+    public class CreateNotesEndpoint : EndpointWithMapping<CreateNotes, CreateNotestResponse, Notes>
     {
         private readonly INotesRepository notesRepository;
 
@@ -34,10 +34,9 @@ namespace NotesApi.CreateNotes
 
         public override CreateNotestResponse MapFromEntity(Notes e) => new CreateNotestResponse
         {
-            NotesId= e.NotesId,
+            NotesId = e.NotesId,
             CreatedDateTime = e.CreatedDateTime,
         };
-       
 
     }
 }

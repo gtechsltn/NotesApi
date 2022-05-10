@@ -25,6 +25,7 @@ namespace NotesApi.GetNotes
             {
                 await SendNotFoundAsync(ct);
             }
+
             await SendOkAsync(new GetNotesResponse
             {
                 Notes = note
