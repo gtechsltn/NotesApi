@@ -21,7 +21,7 @@ namespace NotesApi.ListNotes
         public override async Task HandleAsync(ListNotesRequest req, CancellationToken ct)
         {
             var notes = await this.notesRepository.GetAllNotesAsync(req.UserId);
-            await SendOkAsync(new ListResponse { notes = notes });
+            await SendOkAsync(new ListResponse { Notes = notes });
         }
     }
 }

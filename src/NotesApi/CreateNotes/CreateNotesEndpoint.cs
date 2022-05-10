@@ -21,7 +21,7 @@ namespace NotesApi.CreateNotes
         public override async Task<CreateNotestResponse> ExecuteAsync(CreateNotes req, CancellationToken ct)
         {
             Notes notes = MapToEntity(req);
-            var savedNotes = await this.notesRepository.CreateNotesasync(notes);
+            var savedNotes = await this.notesRepository.CreateNotesAsync(notes);
             return MapFromEntity(savedNotes);
         }
 
@@ -29,7 +29,7 @@ namespace NotesApi.CreateNotes
         {
             UserId = r.UserId,
             Content = r.Content,
-            AttachmentUrl = r.Attachment
+            AttachmentUrl = r.Attachment,
         };
 
         public override CreateNotestResponse MapFromEntity(Notes e) => new CreateNotestResponse
@@ -37,6 +37,5 @@ namespace NotesApi.CreateNotes
             NotesId = e.NotesId,
             CreatedDateTime = e.CreatedDateTime,
         };
-
     }
 }

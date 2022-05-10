@@ -4,16 +4,16 @@ namespace NotesApi.Repository
 {
     public class NotesRepository : INotesRepository
     {
-        private readonly FirestoreDb Db;
+        private readonly FirestoreDb db;
         private readonly CollectionReference collection;
 
         public NotesRepository(FirestoreDb firestoreDb)
         {
-            this.Db = firestoreDb;
-            this.collection = Db.Collection("notes");
+            this.db = firestoreDb;
+            this.collection = db.Collection("notes");
         }
 
-        public async Task<Notes> CreateNotesasync(Notes notes)
+        public async Task<Notes> CreateNotesAsync(Notes notes)
         {
             DocumentReference reference = await collection.AddAsync(notes);
             notes.NotesId = reference.Id;
@@ -23,7 +23,7 @@ namespace NotesApi.Repository
 
         public async Task DeleteNotesAsync(string notesId)
         {
-            DocumentReference document = Db.Document($"notes/{notesId}");
+            DocumentReference document = db.Document($"notes/{notesId}");
             await document.DeleteAsync();
         }
 
@@ -36,12 +36,13 @@ namespace NotesApi.Repository
             {
                 notes.Add(item.ConvertTo<Notes>());
             }
+
             return notes;
         }
 
         public async Task<Notes?> GetNotes(string notesId)
         {
-            DocumentReference document = Db.Document($"notes/{notesId}");
+            DocumentReference document = db.Document($"notes/{notesId}");
             DocumentSnapshot documentSnapshot = await document.GetSnapshotAsync();
             Notes notes = documentSnapshot.ConvertTo<Notes>();
             return notes;
@@ -49,7 +50,7 @@ namespace NotesApi.Repository
 
         public async Task<Notes> UpdateNotesAsync(Notes notes)
         {
-            DocumentReference documentReference = Db.Document($"notes/{notes.NotesId}");
+            DocumentReference documentReference = db.Document($"notes/{notes.NotesId}");
             await documentReference.SetAsync(notes, SetOptions.MergeAll);
             return notes;
         }

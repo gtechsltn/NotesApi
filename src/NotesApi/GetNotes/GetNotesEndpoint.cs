@@ -28,7 +28,7 @@ namespace NotesApi.GetNotes
 
             await SendOkAsync(new GetNotesResponse
             {
-                Notes = note
+                Notes = note,
             });
         }
     }

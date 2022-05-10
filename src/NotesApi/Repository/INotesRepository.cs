@@ -1,9 +1,8 @@
-﻿
-namespace NotesApi.Repository
+﻿namespace NotesApi.Repository
 {
     public interface INotesRepository
     {
-        Task<Notes> CreateNotesasync(Notes notes);
+        Task<Notes> CreateNotesAsync(Notes notes);
 
         Task<IEnumerable<Notes>> GetAllNotesAsync(string userId);
 

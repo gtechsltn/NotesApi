@@ -1,4 +1,6 @@
-﻿namespace NotesApi.CreateNotes
+﻿using FluentValidation;
+
+namespace NotesApi.CreateNotes
 {
     public class CreateNotesValidator : Validator<CreateNotes>
     {

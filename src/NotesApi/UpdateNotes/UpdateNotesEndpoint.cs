@@ -2,7 +2,7 @@
 
 namespace NotesApi.UpdateNotes
 {
-    public class UpdateNotesEndpoint : EndpointWithMapping<UpdateNotesRequest,EmptyResponse,Notes>
+    public class UpdateNotesEndpoint : EndpointWithMapping<UpdateNotesRequest, EmptyResponse, Notes>
     {
         private readonly INotesRepository notesRepository;
 
@@ -32,6 +32,5 @@ namespace NotesApi.UpdateNotes
             AttachmentUrl = r.AttachementUrl,
             Content = r.Content,
         };
-        
     }
 }

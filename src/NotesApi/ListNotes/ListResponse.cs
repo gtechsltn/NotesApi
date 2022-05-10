@@ -4,6 +4,6 @@ namespace NotesApi.ListNotes
 {
     public class ListResponse
     {
-        public IEnumerable<Notes> notes { get; set; } = Enumerable.Empty<Notes>();
+        public IEnumerable<Notes> Notes { get; set; } = Enumerable.Empty<Notes>();
     }
 }
